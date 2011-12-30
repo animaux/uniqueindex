@@ -3,7 +3,7 @@
 <name>Unique Index Field</name>
 <description>A field to define unique index fields for a section.</description>
 <repo type="github">https://github.com/6ui11em/uniqueindex</repo>
-<url type="discuss"></url>
+<url type="discuss">http://symphony-cms.com/discuss/thread/82410/</url>
 <types>
 <type>Field</type>
 <type>Field Types</type>
