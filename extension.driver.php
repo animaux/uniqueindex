@@ -36,20 +36,21 @@
 				// Select entry_id for the field_ids with post values.
 				$field_type = $field_types[$idx];
 				
-				$value_col = "value='".$post_value."'";
-				if (is_array($post_value)) 				
-					$value_col = "value IN ('".implode(',',$post_value)."')";
-				
+				$value_field = 'value';				
 				switch($field_type) {
 					case 'pages':
-						$value_col = 'page_id='.$post_value;
+						$value_field = 'page_id';
 						break;
 					case 'selectbox_link':
-						$value_col = 'relation_id='.$post_value;
+						$value_field = 'relation_id';
 						break;
 					default:
 						;
 				}
+
+				$value_col = $value_field."='".$post_value."'";
+				if (is_array($post_value)) 				
+					$value_col = $value_field." IN ('".implode(',',$post_value)."')";
 				
 				$entries = Symphony::Database()->fetch(
 					sprintf("SELECT entry_id FROM `tbl_entries_data_%d` WHERE ".$value_col." AND entry_id != %d", $field_id, $entry_id)
