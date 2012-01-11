@@ -41,9 +41,14 @@
 					$value_col = "value IN ('".implode(',',$post_value)."')";
 				
 				switch($field_type) {
+					case 'pages':
+						$value_col = 'page_id='.$post_value;
+						break;
 					case 'selectbox_link':
 						$value_col = 'relation_id='.$post_value;
 						break;
+					default:
+						;
 				}
 				
 				$entries = Symphony::Database()->fetch(
