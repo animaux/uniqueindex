@@ -26,10 +26,15 @@
 			$exist_count = 0;
 
 			$idx = 0;
+			$values_col = array();
+			$field_tables = array();
+			
 			foreach ($field_ids as $field_id) {
 				
 				// Select names of the field_id
 				$field_name = $field_names[$idx];
+				$field_table = 'tbl_entries_data_'.$field_id;
+				$field_tables[$idx] = $field_table;
 				
 				$post_value = $post['fields'][$field_name];
 				
@@ -48,21 +53,35 @@
 						;
 				}
 
-				$value_col = $value_field."='".$post_value."'";
-				if (is_array($post_value)) 				
-					$value_col = $value_field." IN ('".implode(',',$post_value)."')";
-				
-				$entries = Symphony::Database()->fetch(
-					sprintf("SELECT entry_id FROM `tbl_entries_data_%d` WHERE ".$value_col." AND entry_id != %d", $field_id, $entry_id)
-				);
-
-				if (count($entries) > 0)
-					$exist_count++;
+				if (!empty($post_value)) {
+					$values_col[$idx] = $field_table.'.'.$value_field."='".$post_value."'";
+					if (is_array($post_value)) 				
+						$values_col[$idx] = $field_table.'.'.$value_field." IN ('".implode("', '", array_map('mysql_escape_string', $post_value))."')";
+				}
 				$idx ++;
 			}
+
+			// SELECT
+			if ($idx > 0) {
+				$from_tables = implode(', ', $field_tables);
+				$where = implode(' AND ', $values_col);
+				
+				if (!empty($entry_id))
+					$where .=  " AND ".$field_tables[0].".entry_id != ".$entry_id;
+				
+				$join = '';
+				foreach ($field_tables as $table) {
+					$join .= $field_tables[0].'.entry_id = '.$table.'.entry_id AND ';
+				}
+					
+				$entries = Symphony::Database()->fetch(
+					sprintf("SELECT %s.entry_id FROM %s WHERE %s %s", $field_tables[0], $from_tables, $join, $where)
+				);
+
+				return count($entries) === 0;
+			}
 			
-			// if number of existing values are = to the unique filds id is another exact value exist in the section
-			return $exist_count != count($field_ids); 
+			return true; 
 		}
 		
 		public function install(){
