@@ -5,8 +5,8 @@
 	require_once(TOOLKIT . '/fields/field.input.php');
 
 	class FieldUniqueIndex extends Field {
-		public function __construct(&$parent){
-			parent::__construct($parent);
+		public function __construct(){
+			parent::__construct();
 			$this->_name = 'Unique Index';
 		}
 

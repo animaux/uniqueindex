@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<extension id="uniqueindex">
+<extension id="uniqueindex" xmlns="http://symphony-cms.com/schemas/extension/1.0">
 <name>Unique Index Field</name>
 <description>A field to define unique index fields for a section.</description>
 <repo type="github">https://github.com/6ui11em/uniqueindex</repo>
@@ -15,6 +15,7 @@
 </author>
 </authors>
 <releases>
+<release version="1.1" date="2011-12-21" min="2.3" />
 <release version="1.0" date="2011-12-21" min="2.2" />
 </releases>
 </extension>
