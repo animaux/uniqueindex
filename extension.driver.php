@@ -85,7 +85,7 @@
 		}
 		
 		public function install(){
-			return $this->_Parent->Database->query(
+			return Symphony::Database()->query(
 				"CREATE TABLE `tbl_fields_uniqueindex` (
 				 `id` int(11) unsigned NOT NULL auto_increment,
 				 `field_id` int(11) unsigned NOT NULL,
@@ -100,7 +100,7 @@
 		}
 
 		public function uninstall() {
-			$this->_Parent->Database->query("DROP TABLE `tbl_fields_uniqueindex`");
+			Symphony::Database()->query("DROP TABLE `tbl_fields_uniqueindex`");
 		}
 
 
