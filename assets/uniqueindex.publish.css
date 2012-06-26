@@ -1,0 +1,8 @@
+.field-uniqueindex {
+	min-height: 0px;
+	margin-bottom: 0;
+}
+
+.field-uniqueindex .invalid {
+	margin-bottom: 10px;
+}

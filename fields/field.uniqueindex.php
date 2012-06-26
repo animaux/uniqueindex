@@ -85,6 +85,8 @@
 		Publish:
 	-------------------------------------------------------------------------*/
 		function displayPublishPanel(&$wrapper, $data=NULL, $flagWithError=NULL, $fieldnamePrefix=NULL, $fieldnamePostfix=NULL){
+			Extension_UniqueIndex::appendAssets();
+
 			$value = $data['value'];
 								
 			$label = Widget::Label($this->get('label'));

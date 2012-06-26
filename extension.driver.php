@@ -2,6 +2,8 @@
 	
 	class Extension_UniqueIndex extends Extension {
 		
+		protected static $assets_loaded = false;
+
 		/**
 		* Extension meta data
 		*/
@@ -54,7 +56,7 @@
 				}
 
 				if (!empty($post_value)) {
-					$values_col[$idx] = $field_table.'.'.$value_field."='".$post_value."'";
+					$values_col[$idx] = $field_table.'.'.$value_field."='".addslashes($post_value)."'";
 					if (is_array($post_value)) 				
 						$values_col[$idx] = $field_table.'.'.$value_field." IN ('".implode("', '", array_map('mysql_escape_string', $post_value))."')";
 				}
@@ -103,6 +105,15 @@
 			Symphony::Database()->query("DROP TABLE `tbl_fields_uniqueindex`");
 		}
 
+		public function appendAssets() {
+			if (self::$assets_loaded === false) {
+				$page = Administration::instance()->Page;
+							
+				$page->addStylesheetToHead(URL . '/extensions/uniqueindex/assets/uniqueindex.publish.css', 'screen');
+				
+				self::$assets_loaded = true;
+			}
+		}
 
 	}
 	
