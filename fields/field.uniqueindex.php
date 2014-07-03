@@ -75,7 +75,7 @@
 			};
 			$label->appendChild(Widget::Select('fields['.$this->get('sortorder').'][unique_field_ids][]', $options, array('multiple' => 'multiple')));
 			if(isset($errors['unique_field_ids'])) {
-				$wrapper->appendChild(Widget::wrapFormElementWithError($label, $errors['unique_field_ids']));
+				$wrapper->appendChild(Widget::Error($label, $errors['unique_field_ids']));
 			} else {
 				$wrapper->appendChild($label);
 			};
@@ -90,7 +90,7 @@
 			$value = $data['value'];
 								
 			$label = Widget::Label($this->get('label'));
-			if($flagWithError != NULL) $wrapper->appendChild(Widget::wrapFormElementWithError($label, $flagWithError));
+			if($flagWithError != NULL) $wrapper->appendChild(Widget::Error($label, $flagWithError));
 			
 		}
 	
