@@ -100,7 +100,9 @@
 			$field_types = $this->get('unique_field_types');
 			
 			$message = NULL;
-			if (!Extension_UniqueIndex::isUnique($field_ids, $field_names, $field_types, $entry_id)) {
+			
+			$driver = Symphony::ExtensionManager()->create('uniqueindex');
+			if (!$driver->isUnique($field_ids, $field_names, $field_types, $entry_id)) {
 				$message = __("'%s' contains data which is already used", array(str_replace(',', ', ', $this->get('unique_field_labels'))));
 				return self::__INVALID_FIELDS__;
 			}
