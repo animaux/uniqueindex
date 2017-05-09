@@ -51,6 +51,9 @@
 					case 'selectbox_link':
 						$value_field = 'relation_id';
 						break;
+          case 'association':
+						$value_field = 'relation_id';
+						break;
 					default:
 						;
 				}

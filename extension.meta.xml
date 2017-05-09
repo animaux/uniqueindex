@@ -5,17 +5,28 @@
 <repo type="github">https://github.com/6ui11em/uniqueindex</repo>
 <url type="discuss">http://symphony-cms.com/discuss/thread/82410/</url>
 <types>
-<type>Field</type>
-<type>Field Types</type>
+  <type>Field</type>
+  <type>Field Types</type>
 </types>
 <authors>
-<author>
-<name github="6ui11em" symphony="guillem_l">Guillem Lorman</name>
-<website>http://bajoelcocotero.com</website>
-</author>
+  <author>
+    <name github="6ui11em" symphony="guillem_l">Guillem Lorman</name>
+    <website>http://bajoelcocotero.com</website>
+  </author>
+  <author>
+    <name github="animaux" symphony="animaux">Alexander Rutz</name>
+    <website>http://animaux.de</website>
+  </author>
 </authors>
 <releases>
-<release version="1.1" date="2011-12-21" min="2.3" />
-<release version="1.0" date="2011-12-21" min="2.2" />
+  <release version="1.2" date="2017-05-09" min="2.3">
+    - PHP7 support
+    + included PR https://github.com/6ui11em/uniqueindex/pull/2/commits/29c57a8b9d7b17fb67ebf40d2547940f051d9262
+    + support for association fields
+    + TODO: fix possible mySQL issues with multilingual field 
+    + TODO: fix implode() error when deselecting all fields
+  </release>
+  <release version="1.1" date="2011-12-21" min="2.3" />
+  <release version="1.0" date="2011-12-21" min="2.2" />
 </releases>
 </extension>

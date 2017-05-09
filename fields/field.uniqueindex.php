@@ -53,7 +53,7 @@
 	/*-------------------------------------------------------------------------
 		Settings:
 	-------------------------------------------------------------------------*/
-		function displaySettingsPanel(&$wrapper, $errors=NULL) {
+		function displaySettingsPanel(XMLElement &$wrapper, $errors=NULL) {
 			parent::displaySettingsPanel($wrapper, $errors);
 
 			// get current section id
@@ -84,7 +84,7 @@
 	/*-------------------------------------------------------------------------
 		Publish:
 	-------------------------------------------------------------------------*/
-		function displayPublishPanel(&$wrapper, $data=NULL, $flagWithError=NULL, $fieldnamePrefix=NULL, $fieldnamePostfix=NULL){
+		function displayPublishPanel(XMLElement &$wrapper, $data = NULL, $flagWithError = NULL, $fieldnamePrefix = NULL, $fieldnamePostfix = NULL, $entry_id = NULL){
 			Extension_UniqueIndex::appendAssets();
 
 			$value = $data['value'];
@@ -100,7 +100,9 @@
 			$field_types = $this->get('unique_field_types');
 			
 			$message = NULL;
-			if (!Extension_UniqueIndex::isUnique($field_ids, $field_names, $field_types, $entry_id)) {
+
+			$driver = Symphony::ExtensionManager()->create('uniqueindex');
+			if (!$driver->isUnique($field_ids, $field_names, $field_types, $entry_id)) {
 				$message = __("'%s' contains data which is already used", array(str_replace(',', ', ', $this->get('unique_field_labels'))));
 				return self::__INVALID_FIELDS__;
 			}
