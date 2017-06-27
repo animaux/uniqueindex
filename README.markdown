@@ -1,12 +1,6 @@
 Unique Index Field Extension
 ============================
 
-* Version: 1.0
-* Authors: Guillem Lorman (guillem@bajoelcocotero.com)
-* Build Date: 21 Desember 2011
-* Requirements:  
-	- Symphony 2.1 or above
-
 Installation
 ------------
 
