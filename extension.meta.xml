@@ -19,8 +19,11 @@
   </author>
 </authors>
 <releases>
+  <release version="1.2.1" date="2017-06-27" min="2.3" max="2.x">
+    + update compatibility info
+  </release>
   <release version="1.2" date="2017-05-09" min="2.3">
-    - PHP7 support
+    + PHP7 support
     + included PR https://github.com/6ui11em/uniqueindex/pull/2/commits/29c57a8b9d7b17fb67ebf40d2547940f051d9262
     + support for association fields
     + TODO: fix possible mySQL issues with multilingual field 
