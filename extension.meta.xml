@@ -19,6 +19,9 @@
   </author>
 </authors>
 <releases>
+  <release version="1.2.2" date="2017-06-29" min="2.3" max="2.x">
+    + removed deprecated about() function
+  </release>
   <release version="1.2.1" date="2017-06-27" min="2.3" max="2.x">
     + update compatibility info
   </release>
@@ -26,8 +29,6 @@
     + PHP7 support
     + included PR https://github.com/6ui11em/uniqueindex/pull/2/commits/29c57a8b9d7b17fb67ebf40d2547940f051d9262
     + support for association fields
-    + TODO: fix possible mySQL issues with multilingual field 
-    + TODO: fix implode() error when deselecting all fields
   </release>
   <release version="1.1" date="2011-12-21" min="2.3" />
   <release version="1.0" date="2011-12-21" min="2.2" />

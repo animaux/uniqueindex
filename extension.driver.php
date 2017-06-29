@@ -3,21 +3,6 @@
 	class Extension_UniqueIndex extends Extension {
 		
 		protected static $assets_loaded = false;
-
-		/**
-		* Extension meta data
-		*/
-		public function about() {
-			return array(
-				'name'			=> 'Unique Index',
-				'version'		=> '1.0',
-				'release-date'	=> '2011-12-20',
-				'author'		=> array(
-					'name'			=> 'Guillem Lorman'
-				),
-				'description' => 'Define a unique index for the section and check if for it before save data.'
-			);
-		}
 		
 		public static function isUnique($field_ids, $field_names, $field_types, $entry_id) {
 			$field_ids = explode(',', $field_ids);
