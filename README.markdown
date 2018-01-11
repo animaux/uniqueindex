@@ -20,6 +20,11 @@ An error message is displayed when the index of an entry is not unique.
 
 This extension is useful if do you want to define a unique set of values for more than one field, or if do you want to make a type of field unique that doesn’t have this option itself.
 
+Attribution
+-----------
+
+This very nice extension has been developed by [Guillem Lorman](http://bajoelcocotero.com) and has been kindly transfered to me.
+
 
 TODO
 ----
