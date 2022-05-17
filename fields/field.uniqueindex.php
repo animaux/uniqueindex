@@ -37,6 +37,10 @@
 					sprintf("SELECT element_name, label, type FROM `tbl_fields` WHERE id=%d", $field_id)
 				);
 				
+				$fields['unique_field_names'] = $fields['unique_field_names'] ?? null;
+				$fields['unique_field_labels'] = $fields['unique_field_labels'] ?? null;
+				$fields['unique_field_types'] = $fields['unique_field_types'] ?? null;
+				
 				$fields['unique_field_names'] .= $entry['element_name'];
 				$fields['unique_field_labels'] .= $entry['label'];
 				$fields['unique_field_types'] .= $entry['type'];
