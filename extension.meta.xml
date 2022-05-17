@@ -19,6 +19,9 @@
   </author>
 </authors>
 <releases>
+  <release version="1.2.3" date="2022-05-17" min="2.7.10" max="2.x">
+    + PHP 8.1 fix (may require PHP 7)
+  </release>
   <release version="1.2.2" date="2017-06-29" min="2.3" max="2.x">
     + removed deprecated about() function
   </release>

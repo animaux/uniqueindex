@@ -57,11 +57,12 @@
 			parent::displaySettingsPanel($wrapper, $errors);
 
 			// get current section id
+			Administration::instance()->Page->_context[1] = Administration::instance()->Page->_context[1] ?? null;
 			$section_id = Administration::instance()->Page->_context[1];
 
 			// related field
 			$label = Widget::Label(__('Unique index fields'), NULL);
-			$fieldManager = new FieldManager($this->_engine);
+			$fieldManager = new FieldManager($this->_engine ?? false);
 			$fields = $fieldManager->fetch(NULL, $section_id, 'ASC', 'sortorder', NULL, NULL, '');
 			$options = array();
 			$attributes = array(
