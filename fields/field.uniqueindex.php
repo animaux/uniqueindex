@@ -90,8 +90,10 @@
 		Publish:
 	-------------------------------------------------------------------------*/
 		function displayPublishPanel(XMLElement &$wrapper, $data = NULL, $flagWithError = NULL, $fieldnamePrefix = NULL, $fieldnamePostfix = NULL, $entry_id = NULL){
-			Extension_UniqueIndex::appendAssets();
+			// Extension_UniqueIndex::appendAssets();
+			(new Extension_UniqueIndex())->appendAssets();
 
+      $data['value'] = $data['value'] ?? null;
 			$value = $data['value'];
 								
 			$label = Widget::Label($this->get('label'));
