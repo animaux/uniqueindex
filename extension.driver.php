@@ -23,7 +23,7 @@
 				$field_table = 'tbl_entries_data_'.$field_id;
 				$field_tables[$idx] = $field_table;
 				
-				$post_value = $post['fields'][$field_name];
+				$post_value = $post['fields'][$field_name] ?? null;
 				
 				// Select entry_id for the field_ids with post values.
 				$field_type = $field_types[$idx];
