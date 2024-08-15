@@ -50,9 +50,10 @@
 				}
 				$idx ++;
 			}
-
+            
 			// SELECT
-			if ($idx > 0) {
+			// don’t check for duplicates when all fields are empty
+			if ($idx > 0 && $values_col != []) {
 				$from_tables = implode(', ', $field_tables);
 				$where = implode(' AND ', $values_col);
 				
